@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+The layout for the screen displaying a review to the student.
+
+Created by Hristo Klechorov
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                style="@style/AppTheme">
+
+    <!-- Header -->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/HeaderLayout"
+            android:elevation="4dp">
+
+        <!-- When we implement ViewModels we should switch the text -->
+        <TextView
+                android:text="@string/reviewScreenAdmin_header"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:layout_toStartOf="@+id/settingsButton"
+                android:layout_marginEnd="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="8dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"/>
+
+        <ImageButton
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/avatar_stock"
+                android:id="@+id/settingsButton"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="1dp" android:layout_gravity="end"
+                android:background="@null"/>
+
+    </RelativeLayout>
+
+    <!-- Content -->
+    <ImageView android:id="@+id/picture"
+               android:layout_width="wrap_content"
+               android:layout_height="200dp"
+               android:layout_marginTop="?attr/actionBarSize"
+               android:layout_alignParentTop="true"/>
+
+    <!-- When we implement View Models we should switch the text here -->
+    <TextView android:id="@+id/moreInfo"
+              android:text="@string/cancel"
+              android:layout_width="match_parent"
+              android:layout_height="200dp"
+              android:background="#D7E6E2"
+              android:layout_below="@+id/picture"
+              android:textSize="20sp"
+              android:layout_marginTop="-5dp"/>
+
+
+    <!-- Visible when the student hasn't registered himself for the review yet -->
+    <TextView
+            android:id="@+id/timeslot"
+            android:text="@string/timeslot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/moreInfo"
+            style="@style/CustomTextView"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_alignStart="@+id/moreInfo"/>
+
+    <!-- Spinner for the drop down menu with timeslot length choices -->
+    <Spinner android:id="@+id/timeslotSpinner"
+             android:layout_width="50dp"
+             android:layout_height="35dp"
+             android:background="@android:drawable/btn_dropdown"
+             android:layout_marginTop="30dp"
+             android:layout_below="@+id/moreInfo"
+             android:layout_toEndOf="@+id/timeslot"
+             android:layout_marginStart="50dp"
+             android:spinnerMode="dropdown"/>
+
+    <Button
+            android:id="@+id/review_sign_up_btn"
+            android:text="@string/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timeslotSpinner"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="120dp"
+            android:layout_alignStart="@+id/moreInfo"/>
+
+    <!-- Visible when the student has already registered himself for the review -->
+    <TextView
+            android:id="@+id/timeslot_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timeslot"
+            android:layout_below="@+id/moreInfo"
+            style="@style/CustomTextView"
+            android:layout_marginStart="30dp"
+            android:layout_alignStart="@+id/moreInfo"
+            android:layout_marginTop="14dp"
+            android:visibility="gone"/>
+
+    <TextView
+            android:id="@+id/tv_showTimeslot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/moreInfo"
+            android:text="@string/timeslot"
+            android:layout_toEndOf="@+id/timeslot_tv"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="16dp"
+            style="@style/CustomTextView"
+            android:visibility="gone"/>
+
+    <Button
+            android:id="@+id/btn_changeTimeslot"
+            android:text="@string/changeTimeslot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timeslot"
+            android:layout_marginStart="100dp"
+            android:layout_alignStart="@+id/moreInfo"
+            android:layout_marginTop="60dp"
+            android:visibility="gone"/>
+
+    <Button
+            android:id="@+id/btn_deregister"
+            android:text="@string/deregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_changeTimeslot"
+            android:layout_marginTop="1dp"
+            android:layout_marginStart="128dp"
+            android:layout_alignStart="@+id/moreInfo"
+            android:visibility="gone"/>
+
+</RelativeLayout>
